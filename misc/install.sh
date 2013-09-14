@@ -8,24 +8,25 @@ cd $OPENSHIFT_RUNTIME_DIR
 mkdir srv
 mkdir srv/pcre
 mkdir srv/httpd
+mkdir srv/httpd/conf
 mkdir srv/php
 mkdir tmp
 cd tmp/
-wget http://ftp.halifax.rwth-aachen.de/apache/httpd/httpd-2.4.3.tar.gz
-tar -zxf httpd-2.4.3.tar.gz
+wget http://ftp.halifax.rwth-aachen.de/apache/httpd/httpd-2.4.6.tar.gz
+tar -zxf httpd-2.4.6.tar.gz
 wget http://artfiles.org/apache.org/apr/apr-1.4.6.tar.gz
 tar -zxf apr-1.4.6.tar.gz
-mv apr-1.4.6 httpd-2.4.3/srclib/apr
-wget http://artfiles.org/apache.org/apr/apr-util-1.5.1.tar.gz
-tar -zxf apr-util-1.5.1.tar.gz
-mv apr-util-1.5.1 httpd-2.4.3/srclib/apr-util
+mv apr-1.4.6 httpd-2.4.6/srclib/apr
+wget http://artfiles.org/apache.org/apr/apr-util-1.5.2.tar.gz
+tar -zxf apr-util-1.5.2.tar.gz
+mv apr-util-1.5.2 httpd-2.4.6/srclib/apr-util
 wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.31.tar.gz
 tar -zxf pcre-8.31.tar.gz
 cd pcre-8.31
 ./configure \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/pcre
 make && make install
-cd ../httpd-2.4.3
+cd ../httpd-2.4.6
 ./configure \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/httpd \
 --with-included-apr \
