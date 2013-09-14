@@ -40,7 +40,6 @@ cd ../httpd-2.4.6
 --enable-headers
 make && make install
 cd ..
-rm -r $OPENSHIFT_RUNTIME_DIR/tmp/*.tar.gz
 
 # INSTALL PHP
 wget -nc http://download.icu-project.org/files/icu4c/50.1/icu4c-50_1-src.tgz
@@ -86,9 +85,6 @@ $OPENSHIFT_RUNTIME_DIR/srv/php/bin/phpize
 --enable-apc \
 --enable-apc-debug=no
 make && make install
-
-# CLEANUP
-rm -r $OPENSHIFT_RUNTIME_DIR/tmp/*.tar.gz
 
 # COPY TEMPLATES
 cp $OPENSHIFT_REPO_DIR/misc/templates/bash_profile.tpl $OPENSHIFT_HOMEDIR/app-root/data/.bash_profile
