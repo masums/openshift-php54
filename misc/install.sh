@@ -12,15 +12,15 @@ mkdir srv/httpd/conf
 mkdir srv/php
 mkdir tmp
 cd tmp/
-wget http://ftp.halifax.rwth-aachen.de/apache/httpd/httpd-2.4.6.tar.gz
+wget -nc http://ftp.halifax.rwth-aachen.de/apache/httpd/httpd-2.4.6.tar.gz
 tar -zxf httpd-2.4.6.tar.gz
-wget http://artfiles.org/apache.org/apr/apr-1.4.6.tar.gz
+wget -nc http://artfiles.org/apache.org/apr/apr-1.4.6.tar.gz
 tar -zxf apr-1.4.6.tar.gz
 mv apr-1.4.6 httpd-2.4.6/srclib/apr
-wget http://artfiles.org/apache.org/apr/apr-util-1.5.2.tar.gz
+wget -nc http://artfiles.org/apache.org/apr/apr-util-1.5.2.tar.gz
 tar -zxf apr-util-1.5.2.tar.gz
 mv apr-util-1.5.2 httpd-2.4.6/srclib/apr-util
-wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.31.tar.gz
+wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.31.tar.gz
 tar -zxf pcre-8.31.tar.gz
 cd pcre-8.31
 ./configure \
@@ -43,7 +43,7 @@ cd ..
 rm -r $OPENSHIFT_RUNTIME_DIR/tmp/*.tar.gz
 
 # INSTALL PHP
-wget http://download.icu-project.org/files/icu4c/50.1/icu4c-50_1-src.tgz
+wget -nc http://download.icu-project.org/files/icu4c/50.1/icu4c-50_1-src.tgz
 tar -zxf icu4c-50_1-src.tgz
 cd icu/source/
 chmod +x runConfigureICU configure install-sh
@@ -51,7 +51,7 @@ chmod +x runConfigureICU configure install-sh
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/icu/
 make && make install
 cd ../..
-wget http://zlib.net/zlib-1.2.8.tar.gz
+wget -nc http://zlib.net/zlib-1.2.8.tar.gz
 tar -zxf zlib-1.2.8.tar.gz
 cd zlib-1.2.8
 chmod +x configure
@@ -59,7 +59,7 @@ chmod +x configure
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/zlib/
 make && make install
 cd ../..
-wget http://de2.php.net/get/php-5.4.7.tar.gz/from/this/mirror
+wget -nc http://de2.php.net/get/php-5.4.7.tar.gz/from/this/mirror
 tar -zxf php-5.4.7.tar.gz
 cd php-5.4.7
 ./configure \
@@ -67,7 +67,7 @@ cd php-5.4.7
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/php/ \
 --with-config-file-path=$OPENSHIFT_RUNTIME_DIR/srv/php/etc/apache2 \
 --with-layout=PHP \
---with-zlib=$OPENSHIFT_RUNTIME_DIR/srv/zlib
+--with-zlib=$OPENSHIFT_RUNTIME_DIR/srv/zlib \
 --with-gd \
 --enable-zip \
 --with-apxs2=$OPENSHIFT_RUNTIME_DIR/srv/httpd/bin/apxs \
@@ -77,7 +77,7 @@ cd php-5.4.7
 make && make install
 mkdir $OPENSHIFT_RUNTIME_DIR/srv/php/etc/apache2
 cd ..
-wget http://pecl.php.net/get/APC-3.1.13.tgz
+wget -nc http://pecl.php.net/get/APC-3.1.13.tgz
 tar -zxf APC-3.1.13.tgz
 cd APC-3.1.13
 $OPENSHIFT_RUNTIME_DIR/srv/php/bin/phpize
