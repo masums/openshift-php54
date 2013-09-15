@@ -58,9 +58,9 @@ chmod +x configure
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/zlib/
 make && make install
 cd ../..
-wget -nc http://de2.php.net/get/php-5.4.7.tar.gz/from/this/mirror
-tar -zxf php-5.4.7.tar.gz
-cd php-5.4.7
+wget -nc http://de3.php.net/get/php-5.5.3.tar.gz/from/this/mirror
+tar -zxf php-5.5.3.tar.gz
+cd php-5.5.3
 ./configure \
 --with-libdir=lib64 \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/php/ \
