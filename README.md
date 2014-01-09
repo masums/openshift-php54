@@ -1,4 +1,4 @@
-Sgoettschkes/openshift-php54
+Sgoettschkes/openshift-php55
 ============================
 
 This is a sample repository to get php 5.4 running on openshift. It's a 
@@ -14,7 +14,7 @@ What's inside
 The misc/install.sh script installs:
 
 * Apache 2.4.3
-* PHP 5.4.7 (updated with zip, zlib and GD modules)
+* PHP 5.5.7 (updated with zip, zlib and GD modules)
 
 It configures apache to have the diy folder as the document root. It also
 uses the php.ini-development from the php archive and moves it into the 
@@ -32,7 +32,7 @@ the file into the apache conf folder.
 Usage
 -----
 
-To get PHP 5.4 working at OpenShift, you have to do the following:
+To get PHP 5.5 working at OpenShift, you have to do the following:
 
 1. Create a new Openshift "Do-It-Yourself" application
 2. Clone this repository
@@ -40,7 +40,7 @@ To get PHP 5.4 working at OpenShift, you have to do the following:
    on the Openshift application page)
 4. Run `git push --force "openshift" master:master`
 5. SSH into your gear
-6. `nohup $OPENSHIFT_REPO_DIR/misc/install.sh > $OPENSHIFT_DIY_LOG_DIR/install.log`
+6. `nohup $OPENSHIFT_REPO_DIR/misc/install.sh > $OPENSHIFT_DIY_LOG_DIR/install.log` (or nevigate into app-root/repo/misc and execute ./install.sh )
 7. Wait (This may take at least an hour)
 8. Open http://appname-namespace.rhcloud.com/phpinfo.php to verify running 
    apache
