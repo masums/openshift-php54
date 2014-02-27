@@ -860,6 +860,7 @@ default_socket_timeout = 60
 ; default extension directory.
 
 extension=apc.so
+extension=$OPENSHIFT_HOMEDIR/app-root/repo/misc/phalcon.so
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
